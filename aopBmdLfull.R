@@ -136,9 +136,6 @@ dataRahman <- read.madata(datafile = exprRahman16, designfile = pheno, header = 
 modnFull <- fitmaanova(dataRahman, ~ nArray + nDose + t + NMc, random = ~ nArray, 
                        covariate = ~ nDose + t, verbose = TRUE)
 
-modnFull2 <- fitmaanova(dataRahman, ~ nArray + NMc, random = ~ 1, 
-                       covariate = ~  nArray, verbose = TRUE)  # this is what Halappanavar et al., 2019 report
-
 # Results
 testnFull <- matest(dataRahman, modnFull, term = "NMc",
                     shuffle.method = "resid", n.perm = 100, verbose = TRUE)
@@ -150,15 +147,6 @@ significantSet = summarytable(testnFullAdj, method ='Pvalperm',
                               test=c('F1','Fs'), whichTest='Fs.Pvalperm', 
                               threshold = 0.05, outfile='maanovaRahmanSignificant.csv')
 
-testnFull2 <- matest(dataRahman, modnFull2, term = "NMc",
-                    shuffle.method = "resid", n.perm = 100, verbose = TRUE)
-testnFullAdj2 <- adjPval(testnFull2, method = "jsFDR")
-resultnFullAdj2 <- summarytable(testnFullAdj2)
-resultnFullAdj2
-summarytable(testnFullAdj2, outfile='maanovaRahman.csv') 
-significantSet2 = summarytable(testnFullAdj2, method ='Pvalperm', 
-                              test=c('F1','Fs'), whichTest='Fs.Pvalperm', 
-                              threshold = 0.05, outfile='maanovaRahmanSignificant.csv') 
 save.image('maanovaRahman.RData')
 
 # GSEA --------------------------------------------------------------------
