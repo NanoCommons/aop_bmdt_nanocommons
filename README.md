@@ -1,4 +1,4 @@
-# AOP BMDt workflow for NanoCommons Task 6.1 & Deliverable 6.3
+# AOP BMDt workflow for NanoCommons Task 6.2 & Deliverable 6.3
 Use 
 ```console
 docker run -v /folder_with_data/:/home/user/ -it rstudio/r-base:3.6.3-centos7
