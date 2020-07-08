@@ -1,8 +1,10 @@
 FROM rstudio/r-base:3.6.3-centos7 
 
+LABEL Irene Liampa <irini.liampa@.gmail.com>
+
 USER root
 
-RUN yum check-update
+RUN yum -y update
 RUN yum -y install openssl-devel
 
 RUN mkdir /home/scripts
