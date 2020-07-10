@@ -1,5 +1,5 @@
 # R/Cran packages 
-install.packages(c("readxl", "enrichR","tidyverse", "stringr", "reshape2"), 
+install.packages(c("readxl", "enrichR", "tidyverse", "stringr", "reshape2"), 
                 dependencies = TRUE, repos='http://cran.us.r-project.org')
 # R/Bioconductor packages
 if (!requireNamespace("BiocManager", quietly = TRUE))
